@@ -7,6 +7,7 @@ public class DzTwoDimArrays {
         sumOfPositiveElements(values1);
         System.out.println();
 
+
         int n = 4;
         squareOfStars(n);
         System.out.println();
