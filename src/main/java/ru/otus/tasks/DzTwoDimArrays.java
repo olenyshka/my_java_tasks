@@ -1,46 +1,76 @@
 package ru.otus.tasks;
 
+import java.util.Arrays;
+
 public class DzTwoDimArrays {
     public static void main(String[] args){
 
         int[][] values1 = {{2, 8, 6}, {4, 0, 3}, {7, 5, 5}};
-        sumOfPositiveElements(values1);
+        int res = getSumOfPositiveElements(values1);
+        System.out.println("1.sumOfPositiveElements: " + res);      //+В задаче указано, что метод должен вернуть сумму...
         System.out.println();
 
+        System.out.println("2.squareOfStars:");
         int n = 4;
         squareOfStars(n);
         System.out.println();
 
-        int[][] values2 = {{2, 8, 6, 5}, {4, 0, 3, 3}, {7, 5, 5, 9}, {8, 3, 7, 9}};
-        squareZeroDiagonal(values2);
+
+        System.out.println("3.squareZeroDiagonalOpt:");
+
+        int[][] values22 = {{2, 8, 6, 5}, {4, 0, 3, 3}, {7, 5, 5, 9}, {8, 3, 7, 9}};
+        squareZeroDiagonalOpt(values22);
         System.out.println();
 
-        System.out.println("максимальный элемент массива: " + getMaxNum(values1));
+
+        System.out.println("3.squareZeroDiagonalOld:");
+
+        int[][] values2 = {{2, 8, 6, 5}, {4, 0, 3, 3}, {7, 5, 5, 9}, {8, 3, 7, 9}};
+        squareZeroDiagonalOld(values2);
+        System.out.println();
 
 
+        System.out.println("4.getMaxNum Максимальный элемент массива: " + getMaxNum(values1));
+        System.out.println();
+
+
+        System.out.println("5.getSecondRowSum : ");
 
         int[][] values3 = {{2, 8, 6, 5}, {4, 0, 3, 3}, {7, 5, 5, 9}, {8, 3, 7, 9}};
 
-        System.out.println("Сумма элементов второй строки: " + getSecondRow(values3));
+        System.out.println(Arrays.deepToString(values3));
 
-        System.out.println("Сумма элементов второго столбца: " + getSecondColumn(values3));
+        System.out.println("Сумма элементов второй строки: " + getSecondRowSum(values3));
 
-//        ошибка при отсутствии второй строки и столбца
+        System.out.println("Сумма элементов второго столбца: " + getSecondColumnSum(values3));
+        System.out.println();
+
+
 
         int[][] values4 = {{2}, {5}};
 
-//        System.out.println("Сумма элементов второй строки: " + getSecondRow(values4));
-//
-//        System.out.println("Сумма элементов второго столбца: " + getSecondColumn(values4));
+        System.out.println("Сумма элементов второй строки {{2}, {5}}: " + getSecondRowSum(values4));
 
-        int[][] values5 = {{2, 5}, {}};
+        System.out.println("Сумма элементов второго столбца {{2}, {5}}: " + getSecondColumnSum(values4));
+        System.out.println();
 
-//        System.out.println("Сумма элементов второй строки: " + getSecondRow(values5));
-//
-//        System.out.println("Сумма элементов второго столбца: " + getSecondColumn(values5));
+        int[][] values5 = {{2, 5}};
+
+        System.out.println("Сумма элементов второй строки {{2, 5}}: " + getSecondRowSum(values5));
+
+        System.out.println("Сумма элементов второго столбца {{2, 5}}: " + getSecondColumnSum(values5));
+        System.out.println();
+
+
+        int[][] values6 = {{2}, {2}, {2}};
+        System.out.println("Сумма элементов второй строки {{2}, {2}, {2}}: " + getSecondRowSum(values6));
+
+        System.out.println("Сумма элементов второго столбца {{2}, {2}, {2}}: " + getSecondColumnSum(values6));
+        System.out.println();
+
     }
 
-    public static void sumOfPositiveElements(int[][] array){
+    public static int getSumOfPositiveElements(int[][] array){
         int sum = 0;
         for (int i = 0; i < array.length; i++){
             for ( int j = 0; j < array[i].length; j++){
@@ -49,7 +79,7 @@ public class DzTwoDimArrays {
                 }
             }
         }
-        System.out.println(sum);
+        return sum;
     }
 
     public static void squareOfStars(int n){
@@ -64,10 +94,26 @@ public class DzTwoDimArrays {
         }
     }
 
-    public static void squareZeroDiagonal(int[][] array){
+    public static void squareZeroDiagonalOpt(int[][] array){
+
+        int arraySize = array.length;
+        System.out.println(arraySize);
+        for (int i = 0; i < array.length; i++){
+            for (int j = 0; j < array[i].length; j++){
+                if(j == i || j == arraySize-1) {      //j == i |
+                    array[i][j] = 0;
+                }
+                System.out.print(array[i][j]);
+            }
+            arraySize--;
+            System.out.println();
+        }
+    }
+
+    public static void squareZeroDiagonalOld(int[][] array){       //но если есть время поковыряться, то оптимизируй метод, чтобы выполнять эти три действия (три цикла) в одном цикле.
         // одна диагональ
         for (int i = 0; i < array.length; i++){
-            for (int j = 0; j < array.length; j++){
+            for (int j = 0; j < array[i].length; j++){
                 if (j == i) {
                     array[i][j] = 0;
                 }
@@ -78,15 +124,15 @@ public class DzTwoDimArrays {
 
         // вторая диагональ
         System.out.println();
-        int num = array.length;
+        int arraySize = array.length;       //называй по смыслу, если это размер массива то arraySize, и пробегись по названиям переменных
 
         for (int i = 0; i < array.length; i++){
             for (int j = array[i].length; j >= 0; j--){
-                if (j == num-1) {
+                if (j == arraySize-1) {
                     array[i][j] = 0;
                 }
             }
-            num -= 1;
+            arraySize -= 1;
         }
 
         for (int i = 0; i < array.length; i++){
@@ -111,34 +157,35 @@ public class DzTwoDimArrays {
         return maxNum;
     }
 
-    public static int getSecondRow(int[][] array){
+    public static int getSecondRowSum(int[][] array){      //+getSecondRow  возвращает сумму? тогда переназови как getSecondRowSum  {{2}, {5}};
 
-        int sumSecondRow = 0;
+        int secondRowSum = 0;
 
-        if (array.length >=2) {
-
-            for (int i = 0; i < array.length; i++) {
-                sumSecondRow += array[1][i];
+        if (array.length >=2) {         //А такой массив посчитает? int[][] values2 = {{2},{2},{2}};    //если больше 2 строк
+                for (int i = 0; i < array[1].length; i++) {
+                    secondRowSum += array[1][i];        //+secondRowSum
             }
         } else {
-            sumSecondRow = -1;
+            secondRowSum = -1;
         }
-        return sumSecondRow;
+        return secondRowSum;
     }
 
 
-    public static int getSecondColumn(int[][] array){
+    public static int getSecondColumnSum(int[][] array){        //а если  {{2, 5}};
 
-        int sumSecondColumn = 0;
+        int secondColumnSum = 0;
 
-        if (array[0].length >=2) {
-            for (int i = 0; i < array[0].length; i++) {
-                sumSecondColumn += array[i][1];
+        if (array.length >=1) {
+            for (int i =0; i < array.length; i++){
+                if(array[i].length >= 2) {              //если длина строка >=2
+                    secondColumnSum += array[i][1];
+                }
             }
         } else {
-            sumSecondColumn = -1;
+            secondColumnSum = -1;
         }
-        return sumSecondColumn;
+        return secondColumnSum;
     }
 
 }
