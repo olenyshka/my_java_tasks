@@ -7,7 +7,7 @@ public class User {
 
     private String surName;
 
-    private int dateBirth;
+    private final int birthYear;    //если это только год рождения то birthYear  дата рождения не поменяется. Делаем final
 
     private String email;
 
@@ -35,12 +35,12 @@ public class User {
         return surName;
     }
 
-    public void setDateBirth(int dateBirth){
-        this.dateBirth = dateBirth;
-    }
+//    public void setBirthYear(int birthYear){      //удаляем класс. Дата рождения обычно не меняется
+//        this.birthYear = birthYear;
+//    }
 
-    public int getDateBirth(){
-        return dateBirth;
+    public int getBirthYear(){
+        return birthYear;
     }
 
     public void setEmail(String email){
@@ -51,27 +51,27 @@ public class User {
         return email;
     }
 
-    public User(String lastName, String firstName, String surName, int dateBirth){
+    public User(String lastName, String firstName, String surName, int birthYear){
         this.lastName = lastName;
         this.firstName = firstName;
         this.surName = surName;
-        this.dateBirth = dateBirth;
+        this.birthYear = birthYear;
     }
 
-    public User(String lastName, String firstName, String surName, int dateBirth, String email){
+    public User(String lastName, String firstName, String surName, int birthYear, String email){
         this.lastName = lastName;
         this.firstName = firstName;
         this.surName = surName;
-        this.dateBirth = dateBirth;
+        this.birthYear = birthYear;
         this.email = email;
     }
 
 
 
-    public void getInfoUser(){
-        System.out.println("ФИО:\t" + lastName + "\t" + firstName + "\t" + surName);
-        System.out.println("Год рождения:\t" + dateBirth);
-        System.out.println("email:\t" + email);
+    public void getUserInfo(){
+        System.out.println("ФИО: " + lastName + " " + firstName + " " + surName + ". Год рождения: " + birthYear + " email: " + email);  //+ "\n"
+//        System.out.println("Год рождения:\t" + birthYear);
+//        System.out.println("email:\t" + email);
     }
 
 

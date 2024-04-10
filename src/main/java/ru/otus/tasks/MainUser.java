@@ -26,10 +26,10 @@ public class MainUser {
         int dateBirth = 0;
 
         for (int i = 0; i < 10; i++){
-            dateBirth = users[i].getDateBirth();
+            dateBirth = users[i].getBirthYear();
             if(year - dateBirth >= 40) {
-                users[i].getInfoUser();
-                System.out.println();
+                users[i].getUserInfo();
+//                System.out.println();
             }
         }
 

@@ -1,11 +1,11 @@
 package ru.otus.tasks;
 
 public class Box {
-    private String size;
+    private final int size;
 
     private String color;
 
-    private boolean isBoxOpened;
+    private boolean isOpened;
 
     private String thing;
 
@@ -13,16 +13,51 @@ public class Box {
 //        this.size = size;
 //    }
 
-    public String getSize(){
+    public int getSize(){
         return size;
     }
 
-    public void setIsBoxOpened(boolean isBoxOpened){
-        this.isBoxOpened = isBoxOpened;
+//    public void setIsOpened(boolean isOpened){
+//        if(isOpened) {
+//            if(this.isOpened)  {
+//                System.out.println("Коробка уже была открыта");
+//            } else {
+//                this.isOpened = isOpened;
+//                System.out.println("Коробка теперь открыта");
+//            }
+//        } else {
+//            if(this.isOpened) {
+//                this.isOpened = isOpened;
+//                System.out.println("Коробка теперь закрыта");
+//            } else {
+//                System.out.println("Коробка уже была закрыта");
+//            }
+//
+//        }
+//    }
+
+    public void open(boolean isOpened) {
+        if (isOpened) {
+            if (this.isOpened) {
+                System.out.println("Коробка уже была открыта");
+            } else {
+                this.isOpened = isOpened;
+                System.out.println("Коробка теперь открыта");
+            }
+        }
     }
 
-    public boolean getIsBoxOpened(){
-        return isBoxOpened;
+    public void close(boolean isOpened){
+        if(!isOpened){
+            this.isOpened = isOpened;
+            System.out.println("Коробка теперь закрыта");
+        } else {
+            System.out.println("Коробка уже была закрыта");
+        }
+    }
+
+    public boolean getIsOpened(){
+        return isOpened;
     }
 
     public void setColor(String color){
@@ -37,30 +72,30 @@ public class Box {
 //        this.thingInBox = thingInBox;
 //    }
 
-    private String getThingInBox(){
-        return thing;
-    }
+//    private String getThingInBox(){
+//        return thing;
+//    }
 
-    public Box(String size, String color){
+    public Box(int size, String color){
         this.size = size;
         this.color = color;
-        this.isBoxOpened = false;
-        this.thing = "";
+        this.isOpened = false; //Не обязательно править, но по умолчанию, если не инициализировать String будет null, а boolean - false, поэтому эти пара строк тут по сути лишние.
+//        this.thing = "";
 
     }
 
 
     public void printInfo(){
         System.out.println(size + " " + color);
-        System.out.println("Коробка " + ((thing.isEmpty()) ? ("пустая") : "не пустая"));
-        System.out.println(isBoxOpened ? "открыта" : "закрыта");
+        System.out.println("Коробка " + ((thing == null || thing.isEmpty()) ? ("пустая") : "не пустая"));
+        System.out.println(isOpened ? "открыта" : "закрыта");
         System.out.println();
     }
 
 
-    public void putThingInBox(String thing){
-        if(getIsBoxOpened()) {
-            if (this.thing.isEmpty()) {
+    public void putThing(String thing){
+        if(getIsOpened()) {
+            if (this.thing == null || this.thing.isEmpty()) {
                 this.thing = thing;
                 System.out.println(this.thing + " положили в коробку");
             } else {
@@ -71,9 +106,9 @@ public class Box {
         }
     }
 
-    public void takeOutOfBox(){
-        if(getIsBoxOpened()) {
-            if (!thing.isEmpty()) {
+    public void getThing(){     //это получается как обычный геттер.  тогда просто getThing() по аналогии как getColor()
+        if(getIsOpened()) {
+            if (!(thing == null || thing.isEmpty())) {          //а если thing подать null?
                 System.out.println(thing + " достали из коробки. Коробка теперь пустая.");
                 this.thing = "";
             } else {

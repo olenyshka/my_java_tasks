@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 public class UseBox {
     public static void main(String[] args) {
-        Box box = new Box("большая", "зеленая");
+        Box box = new Box(15, "зеленая");
 
 
         box.printInfo();
 
-        box.setIsBoxOpened(true);
+//        box.setIsOpened(true);
+
+        box.open(false);
 
         box.printInfo();
 
-        box.takeOutOfBox();
-
-
+        box.getThing();
 
 
         System.out.println("Какой предмет положим ");
@@ -24,9 +24,9 @@ public class UseBox {
 
         String thing = scanner.nextLine();
 
-        box.putThingInBox(thing);
+        box.putThing(thing);
 
-        box.takeOutOfBox();
+        box.getThing();
 
 
 
