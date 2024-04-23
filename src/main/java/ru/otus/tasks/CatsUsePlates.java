@@ -11,9 +11,9 @@ public class CatsUsePlates {
 
         Plate plate = new Plate(40);
 
-        for(int i = 0; i < cats.length; i++){
+        for (int i = 0; i < cats.length; i++) {
             cats[i].eat(plate);
-            cats[i].isFullness();
+            cats[i].getInfoFullness();
         }
 
         plate.addFood(150);
@@ -24,10 +24,9 @@ public class CatsUsePlates {
 
         System.out.println();
 
-        for(int i = 0; i < cats.length; i++){
-            cats[i].isFullness();
+        for (int i = 0; i < cats.length; i++) {
+            cats[i].getInfoFullness();
         }
-
 
 
         System.out.println();
@@ -41,21 +40,13 @@ public class CatsUsePlates {
         };
 
 
-        for (int i = 0; i < cats.length; i++){
+        for (int i = 0; i < cats.length; i++) {
             cats[i].eat(platesForEach[i]);
-            cats[i].isFullness();
+            cats[i].getInfoFullness();
             platesForEach[i].info();
             System.out.println();
         }
 
-
-
-
-
-
-
-
     }
-
 
 }
