@@ -1,34 +1,41 @@
 package ru.otus.tasks;
 
-public class Dog extends Animal{
+public class Dog extends Animal {
 
     final double speedSwim;
 
-    public Dog(String name,String color, double speed, int stamina) {
-        super(name, color, speed, stamina);
-        this.wasteOfStaminaForSwim = 2;
+    final int wasteOfStaminaForSwim;
+
+    public Dog(String name, String color, double speed) {
+        super(name, color, speed);
+        wasteOfStaminaForSwim = 2;
         this.speedSwim = 1;
     }
 
     @Override
-    public void info(){
-        System.out.println("Животное: собака    Имя: " + this.name + "\t цвет: " + this.color + "\t скорость: " + this.speed + "\tвыносливость: " + this.stamina);
+    public void info() {
+        System.out.println("Животное: собака    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + stamina);
     }
 
 
-    public int swim(int distance){
+    public int swim(int distance) {
         int spentTime = 0;
-        if (this.stamina >= (distance * this.wasteOfStaminaForSwim)) {
-            spentTime = (int) (distance / this.speedSwim);
-            this.stamina -= (distance * this.wasteOfStaminaForSwim);
-            System.out.println("Плавание. Дистанция пройдена, осталось stamina: " + this.stamina);
-        } else if (this.stamina > 0){
-            System.out.println(this.name + " устал, надо отдохнуть.");
+        if (stamina >= (distance * wasteOfStaminaForSwim)) {
+            spentTime = (int) (distance / speedSwim);
+            stamina -= (distance * wasteOfStaminaForSwim);
+            System.out.println("Плавание. Дистанция пройдена, осталось stamina: " + stamina);
+        } else {
+            System.out.println(name + " устал, надо отдохнуть.");
             spentTime = -1;
         }
         return spentTime;
     }
 
+
+    @Override
+    public void takeARest() {
+
+    }
 
 
 }

@@ -5,7 +5,7 @@ public class MainAnimal {
         int swimHourse;
 
 
-        Dog haski = new Dog("Лекса", "серая", 15.0, 100);
+        Dog haski = new Dog("Лекса", "серая", 15.0);
 
 //        haski.info();
 //        System.out.println("Затрачено на дистанцию 50м " + haski.run(50) + " секунд\n");
@@ -14,10 +14,9 @@ public class MainAnimal {
         haski.info();
 
 
-
         System.out.println();
 
-        Horse mustang = new Horse("Спирит", "коричневый", 30, 80);
+        Horse mustang = new Horse("Спирит", "коричневый", 30);
 
         mustang.info();
         System.out.println("Затрачено на дистанцию 50м " + mustang.run(50) + " секунд\n");
@@ -27,15 +26,11 @@ public class MainAnimal {
 
         System.out.println();
 
-        Cat houseCat = new Cat("Томас", "серый с белыми лапами", 10, 15);
+        Cat houseCat = new Cat("Томас", "серый с белыми лапами", 10);
 
         houseCat.info();
         System.out.println("Затрачено на дистанцию 50м " + houseCat.run(50) + " секунд\n");
         houseCat.info();
-        houseCat.swim(15);
-
-
-
 
 
     }

@@ -1,22 +1,20 @@
 package ru.otus.tasks;
 
-public class Cat extends Animal{
-    public Cat(String name,String color, double speed, int stamina){
-        super(name, color, speed, stamina);
+public class Cat extends Animal {
+    public Cat(String name, String color, double speed) {
+        super(name, color, speed);
 
     }
-
-
 
     @Override
-    public void info(){
-        System.out.println("Животное: кошка    Имя: " + this.name + "\t цвет: " + this.color + "\t скорость: " + this.speed + "\tвыносливость: " + this.stamina);
+    public void info() {
+        System.out.println("Животное: кошка    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + stamina);
     }
 
-    public int swim(int distance) {
-        System.out.println("Кошки плавать не умеют");
-        return -1;
-
+    @Override
+    public void takeARest() {
+        stamina = 100;
+        System.out.println("Животное: кошка    Имя: " + name + " отдохнуло");
     }
 
 
