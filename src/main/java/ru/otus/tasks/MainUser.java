@@ -6,6 +6,8 @@ public class MainUser {
     public static void main(String[] args) {
         //User user = new User("Бэггинс", "Фродо", "Бильбович", 2968);
 
+        final int ageForCompare = 40;
+
 
         User[] users = {
                 new User("Бэггинс", "Фродо", "Бильбович", 1958, "our_hike@middleearth.lotr"),
@@ -23,11 +25,11 @@ public class MainUser {
 
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
-        int dateBirth = 0;
+//        int dateBirth = 0;
 
         for (int i = 0; i < 10; i++){
-            dateBirth = users[i].getBirthYear();
-            if(year - dateBirth >= 40) {
+//            dateBirth = users[i].getBirthYear();
+            if(year - users[i].getBirthYear() >= ageForCompare) {
                 users[i].getUserInfo();
 //                System.out.println();
             }

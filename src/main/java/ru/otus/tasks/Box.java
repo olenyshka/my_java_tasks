@@ -9,83 +9,52 @@ public class Box {
 
     private String thing;
 
-//    public void setSize(String size){
-//        this.size = size;
-//    }
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
-//    public void setIsOpened(boolean isOpened){
-//        if(isOpened) {
-//            if(this.isOpened)  {
-//                System.out.println("Коробка уже была открыта");
-//            } else {
-//                this.isOpened = isOpened;
-//                System.out.println("Коробка теперь открыта");
-//            }
-//        } else {
-//            if(this.isOpened) {
-//                this.isOpened = isOpened;
-//                System.out.println("Коробка теперь закрыта");
-//            } else {
-//                System.out.println("Коробка уже была закрыта");
-//            }
-//
-//        }
-//    }
-
-    public void open(boolean isOpened) {
+    public void open() {
         if (isOpened) {
-            if (this.isOpened) {
-                System.out.println("Коробка уже была открыта");
-            } else {
-                this.isOpened = isOpened;
-                System.out.println("Коробка теперь открыта");
-            }
+            System.out.println("Коробка уже была открыта");
+        } else {
+            System.out.println("Коробка теперь открыта");
+            isOpened = true;
         }
     }
 
-    public void close(boolean isOpened){
-        if(!isOpened){
-            this.isOpened = isOpened;
+    public void close() {
+        if (!isOpened) {
             System.out.println("Коробка теперь закрыта");
+            isOpened = false;
         } else {
             System.out.println("Коробка уже была закрыта");
         }
     }
 
-    public boolean getIsOpened(){
+    public boolean getIsOpened() {
         return isOpened;
     }
 
-    public void setColor(String color){
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public String getColor(){
+    public String getColor() {
         return color;
     }
 
-//    private void setThingInBox(String thingInBox){
-//        this.thingInBox = thingInBox;
-//    }
 
-//    private String getThingInBox(){
-//        return thing;
-//    }
-
-    public Box(int size, String color){
+    public Box(int size, String color) {
         this.size = size;
         this.color = color;
-        this.isOpened = false; //Не обязательно править, но по умолчанию, если не инициализировать String будет null, а boolean - false, поэтому эти пара строк тут по сути лишние.
+        isOpened = false; //Не обязательно править, но по умолчанию, если не инициализировать String будет null, а boolean - false, поэтому эти пара строк тут по сути лишние.
 //        this.thing = "";
 
     }
 
 
-    public void printInfo(){
+    public void printInfo() {
         System.out.println(size + " " + color);
         System.out.println("Коробка " + ((thing == null || thing.isEmpty()) ? ("пустая") : "не пустая"));
         System.out.println(isOpened ? "открыта" : "закрыта");
@@ -93,8 +62,8 @@ public class Box {
     }
 
 
-    public void putThing(String thing){
-        if(getIsOpened()) {
+    public void putThing(String thing) {
+        if (isOpened) {
             if (this.thing == null || this.thing.isEmpty()) {
                 this.thing = thing;
                 System.out.println(this.thing + " положили в коробку");
@@ -106,11 +75,11 @@ public class Box {
         }
     }
 
-    public void getThing(){     //это получается как обычный геттер.  тогда просто getThing() по аналогии как getColor()
-        if(getIsOpened()) {
+    public void getThing() {
+        if (isOpened) {
             if (!(thing == null || thing.isEmpty())) {          //а если thing подать null?
                 System.out.println(thing + " достали из коробки. Коробка теперь пустая.");
-                this.thing = "";
+                thing = "";
             } else {
                 System.out.println("Коробка пуста, доставать нечего");
             }
@@ -118,7 +87,6 @@ public class Box {
             System.out.println("Коробка закрыта, сначала надо ее открыть.");
         }
     }
-
 
 
 }

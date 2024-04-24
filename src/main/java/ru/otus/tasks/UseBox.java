@@ -11,7 +11,7 @@ public class UseBox {
 
 //        box.setIsOpened(true);
 
-        box.open(false);
+        box.open();
 
         box.printInfo();
 
@@ -27,6 +27,8 @@ public class UseBox {
         box.putThing(thing);
 
         box.getThing();
+
+        box.close();
 
 
 
