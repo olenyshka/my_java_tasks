@@ -7,13 +7,19 @@ public class Cat extends Animal {
     }
 
     @Override
+    public int swim(double distance) {
+        System.out.println("Кошки плавать не умеют");
+        return -1;
+    }
+
+    @Override
     public void info() {
-        System.out.println("Животное: кошка    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + stamina);
+        System.out.println("Животное: кошка    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + getStamina());
     }
 
     @Override
     public void takeARest() {
-        stamina = 100;
+        setStamina(100);
         System.out.println("Животное: кошка    Имя: " + name + " отдохнуло");
     }
 

@@ -14,15 +14,15 @@ public class Horse extends Animal {
 
     @Override
     public void info() {
-        System.out.println("Животное: лошадь    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + stamina);
+        System.out.println("Животное: лошадь    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + getStamina());
     }
 
-    public int swim(int distance) {
+    public int swim(double distance) {
         int spentTime = 0;
-        if (stamina >= (distance * wasteOfStaminaForSwim)) {
+        if (getStamina() >= (distance * wasteOfStaminaForSwim)) {
             spentTime = (int) (distance / speedSwim);
-            stamina -= (distance * wasteOfStaminaForSwim);
-            System.out.println("Плавание. Дистанция пройдена, осталось stamina: " + stamina);
+            setStamina(getStamina() - (int)(distance * wasteOfStaminaForSwim));
+            System.out.println("Плавание. Дистанция пройдена, осталось stamina: " + getStamina());
         } else {
             System.out.println(name + " устал, надо отдохнуть.");
             spentTime = -1;
@@ -30,11 +30,10 @@ public class Horse extends Animal {
         return spentTime;
     }
 
-
     @Override
     public void takeARest() {
-
+        setStamina(100);
+        System.out.println("Животное: лошадь    Имя: " + name + " отдохнуло");
     }
-
 
 }

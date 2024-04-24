@@ -2,7 +2,6 @@ package ru.otus.tasks;
 
 public class MainAnimal {
     public static void main(String[] args) {
-        int swimHourse;
 
 
         Dog haski = new Dog("Лекса", "серая", 15.0);
