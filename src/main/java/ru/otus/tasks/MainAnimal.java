@@ -30,6 +30,7 @@ public class MainAnimal {
         houseCat.info();
         System.out.println("Затрачено на дистанцию 50м " + houseCat.run(50) + " секунд\n");
         houseCat.info();
+//        System.out.println(houseCat.getName());
 
 
     }

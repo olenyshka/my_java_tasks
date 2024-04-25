@@ -2,9 +2,17 @@ package ru.otus.tasks;
 
 public class Horse extends Animal {
 
-    final double speedSwim;
+    private final double speedSwim;
 
-    final int wasteOfStaminaForSwim;
+    private final int wasteOfStaminaForSwim;
+
+    public double getSpeedSwim() {
+        return speedSwim;
+    }
+
+    public int getWasteOfStaminaForSwim() {
+        return wasteOfStaminaForSwim;
+    }
 
     public Horse(String name, String color, double speed) {
         super(name, color, speed);
@@ -17,11 +25,12 @@ public class Horse extends Animal {
         System.out.println("Животное: лошадь    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + getStamina());
     }
 
+    @Override
     public int swim(double distance) {
         int spentTime = 0;
         if (getStamina() >= (distance * wasteOfStaminaForSwim)) {
             spentTime = (int) (distance / speedSwim);
-            setStamina(getStamina() - (int)(distance * wasteOfStaminaForSwim));
+            setStamina(getStamina() - (int) (distance * wasteOfStaminaForSwim));
             System.out.println("Плавание. Дистанция пройдена, осталось stamina: " + getStamina());
         } else {
             System.out.println(name + " устал, надо отдохнуть.");

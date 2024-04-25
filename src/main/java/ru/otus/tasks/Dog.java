@@ -2,14 +2,22 @@ package ru.otus.tasks;
 
 public class Dog extends Animal {
 
-    final double speedSwim;
+    private final double speedSwim;
 
-    final int wasteOfStaminaForSwim;
+    private final int wasteOfStaminaForSwim;
+
+    public double getSpeedSwim() {
+        return speedSwim;
+    }
+
+    public int getWasteOfStaminaForSwim() {
+        return wasteOfStaminaForSwim;
+    }
 
     public Dog(String name, String color, double speed) {
         super(name, color, speed);
         wasteOfStaminaForSwim = 2;
-        this.speedSwim = 1;
+        speedSwim = 1;
     }
 
     @Override
@@ -36,6 +44,5 @@ public class Dog extends Animal {
         setStamina(100);
         System.out.println("Животное: собака    Имя: " + name + " отдохнуло");
     }
-
 
 }
