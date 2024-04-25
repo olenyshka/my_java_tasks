@@ -1,7 +1,7 @@
 package ru.otus.tasks;
 
 public class Plate {
-    final int maxAmountOfFood;        //количество еды в условных единицах
+    private final int maxAmountOfFood;        //количество еды в условных единицах
     private int currentAmountOfFood;
 
     public int getCurrentAmountOfFood() {

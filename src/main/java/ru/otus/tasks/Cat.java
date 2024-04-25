@@ -3,7 +3,16 @@ package ru.otus.tasks;
 public class Cat {
     private final String name;
     private boolean fullness;
-    final int countFoodForFullness;
+    private final int countFoodForFullness;
+
+
+    public String getName(){
+        return name;
+    }
+
+    public int getCountFoodForFullness(){
+        return countFoodForFullness;
+    }
 
     public Cat(String name, int countFoodForFullness) {
         this.name = name;
