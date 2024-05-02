@@ -1,4 +1,4 @@
-package ru.otus.tasks;
+package ru.otus.tasks.dz08;
 
 public class CatsUsePlates {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ru.otus.tasks;
+package ru.otus.tasks.dz08;
 
 public class Plate {
     private final int maxAmountOfFood;        //количество еды в условных единицах
@@ -23,7 +23,7 @@ public class Plate {
         }
     }
 
-    public boolean diffFood(int food) {      //должен быть boolean метод, но как его тут можно использовать по назначению. Или разделить на два метода?
+    public boolean diffFood(int food) {
         if (currentAmountOfFood - food >= 0) {
             currentAmountOfFood -= food;
             return true;

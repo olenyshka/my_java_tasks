@@ -1,4 +1,4 @@
-package ru.otus.tasks;
+package ru.otus.tasks.dz08;
 
 public class Cat {
     private final String name;
@@ -36,10 +36,10 @@ public class Cat {
     }
 
     public void getInfoFullness() {
-        if (this.fullness) {
-            System.out.println("Кот " + this.name + " сыт");
+        if (fullness) {
+            System.out.println("Кот " + name + " сыт");
         } else {
-            System.out.println("Кот " + this.name + " голодный");
+            System.out.println("Кот " + name + " голодный");
         }
     }
 
