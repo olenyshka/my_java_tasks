@@ -22,6 +22,8 @@ public class MainAnimal {
         mustang.info();
         System.out.println("Затрачено на дистанцию 100м " + mustang.swim(100) + " секунд\n");
         mustang.info();
+        mustang.takeARest();
+        mustang.info();
 
         System.out.println();
 

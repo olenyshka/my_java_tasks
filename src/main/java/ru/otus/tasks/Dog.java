@@ -22,7 +22,7 @@ public class Dog extends Animal {
 
     @Override
     public void info() {
-        System.out.println("Животное: собака    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + getStamina());
+        System.out.println("Животное: собака    Имя: " + getName() + "\t цвет: " + getColor() + "\t скорость: " + getSpeed() + "\tвыносливость: " + getStamina());
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Dog extends Animal {
             setStamina(getStamina() - (int) (distance * wasteOfStaminaForSwim));
             System.out.println("Плавание. Дистанция пройдена, осталось stamina: " + getStamina());
         } else {
-            System.out.println(name + " устал, надо отдохнуть.");
+            System.out.println(getName() + " устал, надо отдохнуть.");
             spentTime = -1;
         }
         return spentTime;
@@ -42,7 +42,7 @@ public class Dog extends Animal {
     @Override
     public void takeARest() {
         setStamina(100);
-        System.out.println("Животное: собака    Имя: " + name + " отдохнуло");
+        System.out.println("Животное: собака    Имя: " + getName() + " отдохнуло");
     }
 
 }

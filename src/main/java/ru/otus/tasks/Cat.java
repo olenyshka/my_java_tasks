@@ -16,13 +16,13 @@ public class Cat extends Animal {
 
     @Override
     public void info() {
-        System.out.println("Животное: кошка    Имя: " + name + "\t цвет: " + color + "\t скорость: " + speed + "\tвыносливость: " + getStamina());
+        System.out.println("Животное: кошка    Имя: " + getName() + "\t цвет: " + getColor() + "\t скорость: " + getSpeed() + "\tвыносливость: " + getStamina());
     }
 
     @Override
     public void takeARest() {
         setStamina(100);
-        System.out.println("Животное: кошка    Имя: " +  name + " отдохнуло");
+        System.out.println("Животное: кошка    Имя: " +  getName() + " отдохнуло");
     }
 
 

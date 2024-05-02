@@ -1,9 +1,9 @@
 package ru.otus.tasks;
 
 public abstract class Animal {
-    protected final String name;
-    protected final String color;
-    protected final double speed;
+    private final String name;
+    private final String color;
+    private final double speed;
     private int stamina;
 
     public String getName() {
