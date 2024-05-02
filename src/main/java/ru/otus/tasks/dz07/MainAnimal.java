@@ -1,4 +1,4 @@
-package ru.otus.tasks;
+package ru.otus.tasks.dz07;
 
 public class MainAnimal {
     public static void main(String[] args) {

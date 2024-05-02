@@ -1,6 +1,6 @@
-package ru.otus.tasks;
+package ru.otus.tasks.dz07;
 
-public class Horse extends Animal {
+public class Dog extends Animal {
 
     private final double speedSwim;
 
@@ -14,15 +14,15 @@ public class Horse extends Animal {
         return wasteOfStaminaForSwim;
     }
 
-    public Horse(String name, String color, double speed) {
+    public Dog(String name, String color, double speed) {
         super(name, color, speed);
-        wasteOfStaminaForSwim = 4;
+        wasteOfStaminaForSwim = 2;
         speedSwim = 1;
     }
 
     @Override
     public void info() {
-        System.out.println("Животное: лошадь    Имя: " + getName() + "\t цвет: " + getColor() + "\t скорость: " + getSpeed() + "\tвыносливость: " + getStamina());
+        System.out.println("Животное: собака    Имя: " + getName() + "\t цвет: " + getColor() + "\t скорость: " + getSpeed() + "\tвыносливость: " + getStamina());
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Horse extends Animal {
     @Override
     public void takeARest() {
         setStamina(100);
-        System.out.println("Животное: лошадь    Имя: " + getName() + " отдохнуло");
+        System.out.println("Животное: собака    Имя: " + getName() + " отдохнуло");
     }
 
 }

@@ -1,4 +1,4 @@
-package ru.otus.tasks;
+package ru.otus.tasks.dz07;
 
 public abstract class Animal {
     private final String name;
