@@ -1,4 +1,4 @@
-package ru.otus.tasks;
+package ru.otus.tasks.dz06;
 
 import java.util.Scanner;
 
