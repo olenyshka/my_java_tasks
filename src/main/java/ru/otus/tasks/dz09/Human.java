@@ -47,16 +47,17 @@ public class Human {
     }
 
     public boolean move(PlaceType type, int distance) {
+        int rateForWalk = 4;
         if (currentTransport != null) {
             return currentTransport.move(type, distance);
         }
 
         System.out.println("Идем пешком по " + type.getPlace() + " " + distance + " км");
-        if (stamina <= distance * 4) {
+        if (stamina <= distance * rateForWalk) {
             System.out.println("Но сил не хватит на всю дистанцию.\n");
             return false;
         }
-        stamina -= distance * 4;
+        stamina -= distance * rateForWalk;
         System.out.println("Прошли по " + type.getPlace() + ", осталось сил " + stamina + "\n");
         return true;
 

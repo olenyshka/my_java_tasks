@@ -9,7 +9,7 @@ public class MainHumanUseTransport {
         System.out.println(man.getCurrentTransport());
 
 
-        Car car = new Car(20);
+        Car car = new Car(100);
         man.getOffTheTransport();
         man.takeTransport(car);
 
@@ -20,7 +20,8 @@ public class MainHumanUseTransport {
         man.move(PlaceType.FIELD, 100);
         man.getOffTheTransport();
 
-        man.move(PlaceType.DENSE_FOREST, 20);
+        man.move(PlaceType.DENSE_FOREST, 10);
+        man.move(PlaceType.DENSE_FOREST, 10);
 
 
         man.setStamina(200);
