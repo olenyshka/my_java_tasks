@@ -1,71 +1,83 @@
 package ru.otus.tasks.dz10;
 
 public class ArrayMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        String[][] array1 = {{"2", "8", "6", "5"}, {"4", "0", "3", "3"}, {"7", "5", "5", "9"}, {"8", "3", "7", "9"}};
+        String[][] array3 = {
+                {"2", "8", "6", "5" },
+                {"4", "hello", "3", "3" },
+                {"7", "5", "5", "9" },
+                {"8", "3", "7", "9" }};
 
-        System.out.println("Размер массива array1: " + array1.length + "x" + array1[0].length);
-       // System.out.println(sumArrayElements(array1));
-        System.out.println("Сумма элементов массива array1:");
-        sumArrayElements(array1);
-        System.out.println();
+        String[][] array2 = {
+                {"4", "0", "3", "3" },
+                {"7", "5", "5", "9" },
+                {"8", "3", "7", "9" }};
+
+        String[][] array1 = {
+                {"2", "8", "6", "5" },
+                {"4", "0", "3", "3" },
+                {"7", "5", "5", "9" },
+                {"8", "3", "7", "9" }};
 
 
-        String[][] array2 = { {"4", "0", "3", "3"}, {"7", "5", "5", "9"}, {"8", "3", "7", "9"}};
-        System.out.println("Размер массива array2: " + array2.length + "x" + array2[0].length);
-        //System.out.println(sumArrayElements(array2));
-        System.out.println("Сумма элементов массива array2:");
-        sumArrayElements(array2);
-        System.out.println();
-
-        String[][] array3 = { {"2", "8", "6", "5"}, {"4", "hello", "3", "3"}, {"7", "5", "5", "9"}, {"8", "3", "7", "9"}};
-        System.out.println("Размер массива array3: " + array3.length + "x" + array3[0].length);
-
-        //System.out.println(sumArrayElements(array3));
-        System.out.println("Сумма элементов массива array3:");
-        sumArrayElements(array3);
+        try {
+            System.out.println("Сумма элементов массива array3:");
+            sumArrayElements(array3);
+            System.out.println();
+        } catch (AppArraySizeException | AppArrayDataException e) {
+            System.out.println(e.getMessage() + " array3");
+            System.out.println();
+        } finally {
+            try {
+                System.out.println("Сумма элементов массива array2:");
+                sumArrayElements(array2);
+                System.out.println();
+            } catch (AppArraySizeException | AppArrayDataException e) {
+                System.out.println(e.getMessage() + " array2");
+                System.out.println();
+            } finally {
+//                System.out.println("Сумма элементов массива array2:");
+//                sumArrayElements(array2);
+//                System.out.println();
+                try {
+                    System.out.println("Сумма элементов массива array1:");
+                    sumArrayElements(array1);
+                    System.out.println();
+                } catch (AppArraySizeException | AppArrayDataException e) {
+                    System.out.println(e.getMessage() + " array1");
+                    System.out.println();
+                }
+            }
+        }
 
     }
 
-    public static void getArrayLength(String[][] arr) throws AppArraySizeException {
-        if (arr.length < 4 || arr[0].length < 4) {
-            throw new AppArraySizeException("Некорректный размер массива");
+    public static boolean checkArraySize(String[][] arr) throws AppArraySizeException {
+        if (arr.length < 4 || arr[0].length < 4 || arr[1].length < 4 || arr[2].length < 4 || arr[3].length < 4) {
+            return false;
+        } else {
+            return true;
         }
     }
 
-
     public static void sumArrayElements(String[][] arr) {
 
-        try {
-            getArrayLength(arr);
-        } catch (AppArraySizeException e) {
-            e.printStackTrace();
-            System.out.println("Некорректный размер массива. Должен быть 4x4, а у вас: " + arr.length + "x" + arr[0].length);
-            return;
+        if (!checkArraySize(arr)) {
+            throw new AppArraySizeException("Некорректный размер массива. Должен быть 4x4");
         }
 
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[0].length; j++) {
-//                System.out.println(arr[i][j]);
                 try {
-                    int element = Integer.parseInt(arr[i][j]);
-                    sum += element;
+                    sum += Integer.parseInt(arr[i][j]);
                 } catch (NumberFormatException e) {
-                System.out.println("Неверные данные в ячейке: " + (i+1) + " строка, " + (j+1) + " столбец");
-                return;
-
+                    throw new AppArrayDataException(i, j);
                 }
             }
         }
         System.out.println(sum);
 
-
-
     }
-
-
-
-
 }
