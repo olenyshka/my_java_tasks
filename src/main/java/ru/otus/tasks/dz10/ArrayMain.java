@@ -53,7 +53,7 @@ public class ArrayMain {
 
     }
 
-    public static boolean checkArraySize(String[][] arr) throws AppArraySizeException {
+    public static boolean checkArraySize(String[][] arr) {
         if (arr.length < 4 || arr[0].length < 4 || arr[1].length < 4 || arr[2].length < 4 || arr[3].length < 4) {
             return false;
         } else {
