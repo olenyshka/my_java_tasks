@@ -22,7 +22,6 @@ public class ArrayMain {
 
 
         try {
-            System.out.println("Сумма элементов массива array3:");
             sumArrayElements(array3);
             System.out.println();
         } catch (AppArraySizeException | AppArrayDataException e) {
@@ -30,18 +29,15 @@ public class ArrayMain {
             System.out.println();
         } finally {
             try {
-                System.out.println("Сумма элементов массива array2:");
                 sumArrayElements(array2);
                 System.out.println();
             } catch (AppArraySizeException | AppArrayDataException e) {
                 System.out.println(e.getMessage() + " array2");
                 System.out.println();
             } finally {
-//                System.out.println("Сумма элементов массива array2:");
 //                sumArrayElements(array2);
 //                System.out.println();
                 try {
-                    System.out.println("Сумма элементов массива array1:");
                     sumArrayElements(array1);
                     System.out.println();
                 } catch (AppArraySizeException | AppArrayDataException e) {
@@ -54,11 +50,14 @@ public class ArrayMain {
     }
 
     public static boolean checkArraySize(String[][] arr) {
-        if (arr.length < 4 || arr[0].length < 4 || arr[1].length < 4 || arr[2].length < 4 || arr[3].length < 4) {
-            return false;
-        } else {
-            return true;
+        if (arr.length == 4) {
+            for (int i = 0; i < 4; i++) {
+                if (arr[i].length == 4) {
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
     public static void sumArrayElements(String[][] arr) {
@@ -69,7 +68,7 @@ public class ArrayMain {
 
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[0].length; j++) {
+            for (int j = 0; j < arr[i].length; j++) {
                 try {
                     sum += Integer.parseInt(arr[i][j]);
                 } catch (NumberFormatException e) {
@@ -77,7 +76,7 @@ public class ArrayMain {
                 }
             }
         }
-        System.out.println(sum);
+        System.out.println("сумма элементов массива = " + sum);
 
     }
 }
