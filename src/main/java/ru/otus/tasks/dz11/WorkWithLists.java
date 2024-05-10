@@ -7,7 +7,8 @@ public class WorkWithLists {
     public static void main(String[] args) {
 
         getSeqValues(5, 9);
-//        System.out.println(getSeqValues(5, 9));
+        System.out.println(getSeqValues(5, 9));
+        System.out.println(getSeqValues(9, 5));
 
 
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -24,17 +25,24 @@ public class WorkWithLists {
 
         increaseAllValuesOfList(2, arrayList);
 
+//        System.out.println(arrayList);
+
 
     }
 
 
     public static ArrayList getSeqValues(int min, int max) {
+        if (min > max) {
+            int temp = min;
+            min = max;
+            max = temp;
+        }
+
         ArrayList<Integer> arrayList = new ArrayList<>();
 
         for (int i = max; i >= min; i--) {
             arrayList.add(i);
         }
-        System.out.println(arrayList);
         return arrayList;
     }
 
