@@ -49,12 +49,15 @@ public class ArrayMain {
 
     }
 
-    public static boolean checkArraySize(String[][] arr) {
-        if (arr.length == 4) {
-            for (int i = 0; i < 4; i++) {
-                if (arr[i].length == 4) {
-                    return true;
-                }
+    public static final int SIZE = 4;
+
+    public static boolean checkArraySize(String[][] strArr) {
+        if (strArr.length != SIZE) {
+            return true;
+        }
+        for(String[] strings : strArr) {
+            if (strings.length != SIZE) {
+                return true;
             }
         }
         return false;
@@ -62,7 +65,7 @@ public class ArrayMain {
 
     public static void sumArrayElements(String[][] arr) {
 
-        if (!checkArraySize(arr)) {
+        if (checkArraySize(arr)) {
             throw new AppArraySizeException("Некорректный размер массива. Должен быть 4x4");
         }
 
